@@ -11,17 +11,17 @@
             {
                 "file": "images/2.png",
                 "name": "POKEMON_2",
-                "type": "png"
+                "type": "raw"
             },
             {
                 "file": "images/1.png",
                 "name": "POKEMON_1",
-                "type": "png"
+                "type": "raw"
             },
             {
                 "file": "images/0.png",
                 "name": "POKEMON_0",
-                "type": "png"
+                "type": "raw"
             },
             {
                 "file": "data/pokemon_0_5.png",
