@@ -37,7 +37,7 @@ static uint32_t s_resource_ids[] = {
 };
 // static GBitmap *s_current_sprite;
 
-static int which_pokemon = 1;
+static int which_pokemon = 0;
 
 static void update_time() {
   // Get a tm structure
@@ -71,6 +71,7 @@ static void update_time() {
 static void main_window_load(Window *window) {
   //s_current_sprite = gbitmap_create_with_png_resource(RESOURCE_ID_POKEMON_0_5);
   s_current_pokemon = gbitmap_create_with_png_resource(RESOURCE_ID_POKEMON_0);
+  APP_LOG(APP_LOG_LEVEL_DEBUG,"loaded 0");
   //s_current_pokemon = gbitmap_create_as_sub_bitmap(s_current_sprite, GRect(0, 0, 144, 144));	
   // TODO remove this^^^
   // TODO make it start from the real time, not from 0.

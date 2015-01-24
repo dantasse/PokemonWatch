@@ -9,33 +9,8 @@
     "resources": {
         "media": [
             {
-                "file": "data/pokemon_24_29.png",
-                "name": "POKEMON_24_29",
-                "type": "raw"
-            },
-            {
-                "file": "data/pokemon_18_23.png",
-                "name": "POKEMON_18_23",
-                "type": "raw"
-            },
-            {
-                "file": "data/pokemon_12_17.png",
-                "name": "POKEMON_12_17",
-                "type": "raw"
-            },
-            {
-                "file": "data/pokemon_6_11.png",
-                "name": "POKEMON_6_11",
-                "type": "raw"
-            },
-            {
-                "file": "data/pokemon_0_5.png",
-                "name": "POKEMON_0_5",
-                "type": "raw"
-            },
-            {
-                "file": "data/0.png",
-                "name": "POKEMON_0",
+                "file": "data/2.png",
+                "name": "POKEMON_2",
                 "type": "raw"
             },
             {
@@ -44,8 +19,8 @@
                 "type": "raw"
             },
             {
-                "file": "data/2.png",
-                "name": "POKEMON_2",
+                "file": "data/0.png",
+                "name": "POKEMON_0",
                 "type": "raw"
             }
         ]
