@@ -19,26 +19,14 @@ static char* s_names[] = {
   "Vileplume", "Paras", "Parasect", "Venonat", "Venomoth",
   "Diglett", "Dugtrio", "Meowth", "Persian", "Psyduck",
   "Golduck", "Mankey", "Primeape", "Growlithe", "Arcanine"};
-static uint32_t s_resource_ids[] = {
-  RESOURCE_ID_POKEMON_0, RESOURCE_ID_POKEMON_1, RESOURCE_ID_POKEMON_2, RESOURCE_ID_POKEMON_3,
-  RESOURCE_ID_POKEMON_4, RESOURCE_ID_POKEMON_5, RESOURCE_ID_POKEMON_6, RESOURCE_ID_POKEMON_7,
-  RESOURCE_ID_POKEMON_8, RESOURCE_ID_POKEMON_9, RESOURCE_ID_POKEMON_10, RESOURCE_ID_POKEMON_11,
-  RESOURCE_ID_POKEMON_12, RESOURCE_ID_POKEMON_13, RESOURCE_ID_POKEMON_14, RESOURCE_ID_POKEMON_15,
-//  RESOURCE_ID_POKEMON_16, RESOURCE_ID_POKEMON_17, RESOURCE_ID_POKEMON_18, RESOURCE_ID_POKEMON_19,
-//  RESOURCE_ID_POKEMON_20, RESOURCE_ID_POKEMON_21, RESOURCE_ID_POKEMON_22, RESOURCE_ID_POKEMON_23,
-//  RESOURCE_ID_POKEMON_24, RESOURCE_ID_POKEMON_25, RESOURCE_ID_POKEMON_26, RESOURCE_ID_POKEMON_27,
-//  RESOURCE_ID_POKEMON_28, RESOURCE_ID_POKEMON_29, RESOURCE_ID_POKEMON_30, RESOURCE_ID_POKEMON_31,
-//  RESOURCE_ID_POKEMON_32, RESOURCE_ID_POKEMON_33, RESOURCE_ID_POKEMON_34, RESOURCE_ID_POKEMON_35,
-//   RESOURCE_ID_POKEMON_36, RESOURCE_ID_POKEMON_37, RESOURCE_ID_POKEMON_38, RESOURCE_ID_POKEMON_39,
-//   RESOURCE_ID_POKEMON_40, RESOURCE_ID_POKEMON_41, RESOURCE_ID_POKEMON_42, RESOURCE_ID_POKEMON_43,
-//   RESOURCE_ID_POKEMON_44, RESOURCE_ID_POKEMON_45, RESOURCE_ID_POKEMON_46, RESOURCE_ID_POKEMON_47,
-//   RESOURCE_ID_POKEMON_48, RESOURCE_ID_POKEMON_49, RESOURCE_ID_POKEMON_50, RESOURCE_ID_POKEMON_51,
-//   RESOURCE_ID_POKEMON_52, RESOURCE_ID_POKEMON_53, RESOURCE_ID_POKEMON_54, RESOURCE_ID_POKEMON_55,
-//   RESOURCE_ID_POKEMON_56, RESOURCE_ID_POKEMON_57, RESOURCE_ID_POKEMON_58, RESOURCE_ID_POKEMON_59
-};
-static int POKEMON_PER_SPRITE = 12;
+
+static int POKEMON_PER_SPRITE = 6;
 static uint32_t s_sprite_resource_ids[] = {
-  RESOURCE_ID_POKEMON_0_11
+  RESOURCE_ID_POKEMON_0_5,
+  RESOURCE_ID_POKEMON_6_11,
+  RESOURCE_ID_POKEMON_12_17,
+  RESOURCE_ID_POKEMON_18_23,
+  RESOURCE_ID_POKEMON_24_29,
 };
 static GBitmap *s_current_sprite;
 
@@ -59,8 +47,8 @@ static void update_time() {
   GRect sub_rect = GRect(0, 0, 144, 144);
   //GRect sub_rect = GRect(0,0,20,20);
   GBitmap *previous_pokemon = s_current_pokemon;
-  //s_current_pokemon = gbitmap_create_as_sub_bitmap(s_current_sprite, sub_rect);	
-  s_current_pokemon = gbitmap_create_with_resource(s_resource_ids[which_pokemon]);
+  s_current_pokemon = gbitmap_create_as_sub_bitmap(s_current_sprite, GRect(offset,0,144,144));	
+  //s_current_pokemon = gbitmap_create_with_resource(s_resource_ids[which_pokemon]);
   //APP_LOG(APP_LOG_LEVEL_DEBUG, "here is sub_rect %d", sub_rect);
   APP_LOG(APP_LOG_LEVEL_DEBUG, "here is s_current_pokemon %p", s_current_pokemon);
   bitmap_layer_set_bitmap(s_bitmap_layer, s_current_pokemon);
@@ -71,12 +59,14 @@ static void update_time() {
 }
 
 static void main_window_load(Window *window) {
-  s_current_pokemon = gbitmap_create_with_resource(s_resource_ids[0]);
+  s_current_sprite = gbitmap_create_with_resource(RESOURCE_ID_POKEMON_0_5);
+  s_current_pokemon = gbitmap_create_as_sub_bitmap(s_current_sprite, GRect(0, 0, 144, 144));	
+  // TODO remove this^^^
+  // TODO make it start from the real time, not from 0.
   s_bitmap_layer = bitmap_layer_create(GRect(0, 0, 144, 144));
   bitmap_layer_set_bitmap(s_bitmap_layer, s_current_pokemon);
   layer_add_child(window_get_root_layer(window), bitmap_layer_get_layer(s_bitmap_layer));
-  s_current_sprite = gbitmap_create_with_resource(RESOURCE_ID_POKEMON_0_11);
-  // TODO remove this^^^
+
   s_time_layer = text_layer_create(GRect(0, 144, 144, 24));
   text_layer_set_background_color(s_time_layer, GColorBlack);
   text_layer_set_text_color(s_time_layer, GColorClear);

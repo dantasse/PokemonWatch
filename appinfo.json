@@ -9,88 +9,28 @@
     "resources": {
         "media": [
             {
-                "file": "images/pokemon0_11.png",
-                "name": "POKEMON_0_11",
+                "file": "images/pokemon_24_29.png",
+                "name": "POKEMON_24_29",
                 "type": "png"
             },
             {
-                "file": "images/15.png",
-                "name": "POKEMON_15",
+                "file": "images/pokemon_18_23.png",
+                "name": "POKEMON_18_23",
                 "type": "png"
             },
             {
-                "file": "images/14.png",
-                "name": "POKEMON_14",
+                "file": "images/pokemon_12_17.png",
+                "name": "POKEMON_12_17",
                 "type": "png"
             },
             {
-                "file": "images/13.png",
-                "name": "POKEMON_13",
+                "file": "images/pokemon_6_11.png",
+                "name": "POKEMON_6_11",
                 "type": "png"
             },
             {
-                "file": "images/12.png",
-                "name": "POKEMON_12",
-                "type": "png"
-            },
-            {
-                "file": "images/11.png",
-                "name": "POKEMON_11",
-                "type": "png"
-            },
-            {
-                "file": "images/10.png",
-                "name": "POKEMON_10",
-                "type": "png"
-            },
-            {
-                "file": "images/9.png",
-                "name": "POKEMON_9",
-                "type": "png"
-            },
-            {
-                "file": "images/8.png",
-                "name": "POKEMON_8",
-                "type": "png"
-            },
-            {
-                "file": "images/7.png",
-                "name": "POKEMON_7",
-                "type": "png"
-            },
-            {
-                "file": "images/6.png",
-                "name": "POKEMON_6",
-                "type": "png"
-            },
-            {
-                "file": "images/5.png",
-                "name": "POKEMON_5",
-                "type": "png"
-            },
-            {
-                "file": "images/4.png",
-                "name": "POKEMON_4",
-                "type": "png"
-            },
-            {
-                "file": "images/3.png",
-                "name": "POKEMON_3",
-                "type": "png"
-            },
-            {
-                "file": "images/2.png",
-                "name": "POKEMON_2",
-                "type": "png"
-            },
-            {
-                "file": "images/1.png",
-                "name": "POKEMON_1",
-                "type": "png"
-            },
-            {
-                "file": "images/0.png",
-                "name": "POKEMON_0",
+                "file": "images/pokemon_0_5.png",
+                "name": "POKEMON_0_5",
                 "type": "png"
             }
         ]
