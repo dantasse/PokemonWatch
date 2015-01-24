@@ -20,15 +20,6 @@ static char* s_names[] = {
   "Diglett", "Dugtrio", "Meowth", "Persian", "Psyduck",
   "Golduck", "Mankey", "Primeape", "Growlithe", "Arcanine"};
 
-//static int POKEMON_PER_SPRITE = 6;
-// static uint32_t s_sprite_resource_ids[] = {
-//   RESOURCE_ID_POKEMON_0_5,
-//   RESOURCE_ID_POKEMON_6_11,
-//   RESOURCE_ID_POKEMON_12_17,
-//   RESOURCE_ID_POKEMON_18_23,
-//   RESOURCE_ID_POKEMON_24_29,
-// };
-
 static uint32_t s_resource_ids[] = {
   RESOURCE_ID_POKEMON_0, RESOURCE_ID_POKEMON_1, RESOURCE_ID_POKEMON_2, RESOURCE_ID_POKEMON_3, RESOURCE_ID_POKEMON_4,
   RESOURCE_ID_POKEMON_5, RESOURCE_ID_POKEMON_6, RESOURCE_ID_POKEMON_7, RESOURCE_ID_POKEMON_8, RESOURCE_ID_POKEMON_9,
@@ -47,15 +38,11 @@ static uint32_t s_resource_ids[] = {
 static int which_pokemon = 0;
 
 static void update_time() {
-  // Get a tm structure
   time_t temp = time(NULL);
   struct tm *tick_time = localtime(&temp);
-//   which_pokemon = (which_pokemon + 1) % NUM_POKEMON;
   which_pokemon = tick_time -> tm_min;
                    
-  APP_LOG(APP_LOG_LEVEL_DEBUG,"hello");
   GBitmap *previous_pokemon = s_current_pokemon;
-  //s_current_pokemon = gbitmap_create_as_sub_bitmap(s_current_sprite, GRect(offset,0,144,144));	
   s_current_pokemon = gbitmap_create_with_png_resource(s_resource_ids[which_pokemon]);
   bitmap_layer_set_bitmap(s_bitmap_layer, s_current_pokemon);
   text_layer_set_text(s_time_layer, s_names[which_pokemon]);
@@ -64,7 +51,6 @@ static void update_time() {
 }
 
 static void main_window_load(Window *window) {
-  //s_current_sprite = gbitmap_create_with_png_resource(RESOURCE_ID_POKEMON_0_5);
   s_current_pokemon = gbitmap_create_with_png_resource(RESOURCE_ID_POKEMON_0);
   // TODO make it start from the real time, not from 0.
   s_bitmap_layer = bitmap_layer_create(GRect(0, 0, 144, 144));
