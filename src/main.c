@@ -29,6 +29,12 @@ static uint32_t s_sprite_resource_ids[] = {
   RESOURCE_ID_POKEMON_18_23,
   RESOURCE_ID_POKEMON_24_29,
 };
+
+static uint32_t s_resource_ids[] = {
+  RESOURCE_ID_POKEMON_0,
+  RESOURCE_ID_POKEMON_1,
+  RESOURCE_ID_POKEMON_2,
+};
 static GBitmap *s_current_sprite;
 
 static int which_pokemon = 1;
@@ -39,17 +45,18 @@ static void update_time() {
   struct tm *tick_time = localtime(&temp);
   which_pokemon = (which_pokemon + 1) % NUM_POKEMON;
   //GBitmap *previous_sprite = s_current_sprite;
-  //s_current_sprite = gbitmap_create_with_png_resource(RESOURCE_ID_POKEMON_0_11);
+  //s_current_sprite = gbitmap_create_with_png_resource(RESOURCE_ID_POKEMON_0);
 //   which_sprite = which_pokemon / POKEMON_PER_SPRITE;
   // TODO ^^^
-  int offset = (which_pokemon % POKEMON_PER_SPRITE) * 144;
+  //int offset = (which_pokemon % POKEMON_PER_SPRITE) * 144;
+  //offset = 0; // TODO
   
   APP_LOG(APP_LOG_LEVEL_DEBUG,"hello");
   GRect sub_rect = GRect(0, 0, 144, 144);
   //GRect sub_rect = GRect(0,0,20,20);
   GBitmap *previous_pokemon = s_current_pokemon;
-  s_current_pokemon = gbitmap_create_as_sub_bitmap(s_current_sprite, GRect(offset,0,144,144));	
-  //s_current_pokemon = gbitmap_create_with_png_resource(s_resource_ids[which_pokemon]);
+  //s_current_pokemon = gbitmap_create_as_sub_bitmap(s_current_sprite, GRect(offset,0,144,144));	
+  s_current_pokemon = gbitmap_create_with_png_resource(s_resource_ids[which_pokemon]);
   //APP_LOG(APP_LOG_LEVEL_DEBUG, "here is sub_rect %d", sub_rect);
   APP_LOG(APP_LOG_LEVEL_DEBUG, "here is s_current_pokemon %p", s_current_pokemon);
   bitmap_layer_set_bitmap(s_bitmap_layer, s_current_pokemon);
@@ -60,7 +67,8 @@ static void update_time() {
 }
 
 static void main_window_load(Window *window) {
-  s_current_sprite = gbitmap_create_with_png_resource(RESOURCE_ID_POKEMON_0_5);
+  //s_current_sprite = gbitmap_create_with_png_resource(RESOURCE_ID_POKEMON_0_5);
+  s_current_sprite = gbitmap_create_with_png_resource(RESOURCE_ID_POKEMON_0);
   s_current_pokemon = gbitmap_create_as_sub_bitmap(s_current_sprite, GRect(0, 0, 144, 144));	
   // TODO remove this^^^
   // TODO make it start from the real time, not from 0.
