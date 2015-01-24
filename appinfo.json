@@ -67,7 +67,7 @@
             { "file": "data/56.png", "name": "POKEMON_56", "type": "raw" },
             { "file": "data/57.png", "name": "POKEMON_57", "type": "raw" },
             { "file": "data/58.png", "name": "POKEMON_58", "type": "raw" },
-            { "file": "data/59.png", "name": "POKEMON_59", "type": "raw" },
+            { "file": "data/59.png", "name": "POKEMON_59", "type": "raw" }
         ]
     },
     "shortName": "PokemonWatch",
