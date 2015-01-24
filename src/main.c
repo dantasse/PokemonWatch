@@ -6,7 +6,7 @@ static TextLayer *s_time_layer;
 static BitmapLayer *s_bitmap_layer;
 // static GBitmap *s_previous_pokemon;
 static GBitmap *s_current_pokemon;
-static int NUM_POKEMON = 12;
+static int NUM_POKEMON = 3;
 static char* s_names[] = {
   "MissingNo", "Bulbasaur", "Ivysaur", "Venusaur", "Charmander",
   "Charmeleon", "Charizard", "Squirtle", "Wartortle", "Blastoise",
@@ -35,7 +35,7 @@ static uint32_t s_resource_ids[] = {
   RESOURCE_ID_POKEMON_1,
   RESOURCE_ID_POKEMON_2,
 };
-static GBitmap *s_current_sprite;
+// static GBitmap *s_current_sprite;
 
 static int which_pokemon = 1;
 
@@ -52,24 +52,26 @@ static void update_time() {
   //offset = 0; // TODO
   
   APP_LOG(APP_LOG_LEVEL_DEBUG,"hello");
-  GRect sub_rect = GRect(0, 0, 144, 144);
+  //GRect sub_rect = GRect(0, 0, 144, 144);
   //GRect sub_rect = GRect(0,0,20,20);
   GBitmap *previous_pokemon = s_current_pokemon;
   //s_current_pokemon = gbitmap_create_as_sub_bitmap(s_current_sprite, GRect(offset,0,144,144));	
   s_current_pokemon = gbitmap_create_with_png_resource(s_resource_ids[which_pokemon]);
   //APP_LOG(APP_LOG_LEVEL_DEBUG, "here is sub_rect %d", sub_rect);
   APP_LOG(APP_LOG_LEVEL_DEBUG, "here is s_current_pokemon %p", s_current_pokemon);
+  APP_LOG(APP_LOG_LEVEL_DEBUG, "here is previous pokemon %p", previous_pokemon);
   bitmap_layer_set_bitmap(s_bitmap_layer, s_current_pokemon);
   text_layer_set_text(s_time_layer, s_names[which_pokemon]);
   APP_LOG(APP_LOG_LEVEL_DEBUG,"made it to here...");
   // delete prev pokemon
   gbitmap_destroy(previous_pokemon);
+  APP_LOG(APP_LOG_LEVEL_DEBUG,"destroyed previous pokemon");
 }
 
 static void main_window_load(Window *window) {
   //s_current_sprite = gbitmap_create_with_png_resource(RESOURCE_ID_POKEMON_0_5);
-  s_current_sprite = gbitmap_create_with_png_resource(RESOURCE_ID_POKEMON_0);
-  s_current_pokemon = gbitmap_create_as_sub_bitmap(s_current_sprite, GRect(0, 0, 144, 144));	
+  s_current_pokemon = gbitmap_create_with_png_resource(RESOURCE_ID_POKEMON_0);
+  //s_current_pokemon = gbitmap_create_as_sub_bitmap(s_current_sprite, GRect(0, 0, 144, 144));	
   // TODO remove this^^^
   // TODO make it start from the real time, not from 0.
   s_bitmap_layer = bitmap_layer_create(GRect(0, 0, 144, 144));

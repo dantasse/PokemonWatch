@@ -9,33 +9,8 @@
     "resources": {
         "media": [
             {
-                "file": "images/2.png",
-                "name": "POKEMON_2",
-                "type": "raw"
-            },
-            {
-                "file": "images/1.png",
-                "name": "POKEMON_1",
-                "type": "raw"
-            },
-            {
-                "file": "images/0.png",
-                "name": "POKEMON_0",
-                "type": "raw"
-            },
-            {
-                "file": "data/pokemon_0_5.png",
-                "name": "POKEMON_0_5",
-                "type": "raw"
-            },
-            {
-                "file": "data/pokemon_6_11.png",
-                "name": "POKEMON_6_11",
-                "type": "raw"
-            },
-            {
-                "file": "data/pokemon_12_17.png",
-                "name": "POKEMON_12_17",
+                "file": "data/pokemon_24_29.png",
+                "name": "POKEMON_24_29",
                 "type": "raw"
             },
             {
@@ -44,8 +19,33 @@
                 "type": "raw"
             },
             {
-                "file": "data/pokemon_24_29.png",
-                "name": "POKEMON_24_29",
+                "file": "data/pokemon_12_17.png",
+                "name": "POKEMON_12_17",
+                "type": "raw"
+            },
+            {
+                "file": "data/pokemon_6_11.png",
+                "name": "POKEMON_6_11",
+                "type": "raw"
+            },
+            {
+                "file": "data/pokemon_0_5.png",
+                "name": "POKEMON_0_5",
+                "type": "raw"
+            },
+            {
+                "file": "data/0.png",
+                "name": "POKEMON_0",
+                "type": "raw"
+            },
+            {
+                "file": "data/1.png",
+                "name": "POKEMON_1",
+                "type": "raw"
+            },
+            {
+                "file": "data/2.png",
+                "name": "POKEMON_2",
                 "type": "raw"
             }
         ]
